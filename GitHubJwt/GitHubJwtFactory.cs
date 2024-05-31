@@ -29,7 +29,7 @@ namespace GitHubJwt
             {
                 {"iat", ToUtcSeconds(utcNow)},
                 {"exp", ToUtcSeconds(utcNow.AddSeconds(options.ExpirationSeconds))},
-                {"iss", options.AppIntegrationId}
+                {"iss", (object)options.ClientId ?? options.AppIntegrationId}
             };
 
             // Generate JWT
